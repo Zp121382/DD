@@ -79,37 +79,22 @@ public class DBUtils {
         if(resultSet!=null){
             try {
                 resultSet.close();
-<<<<<<< HEAD
-            } catch (SQLException e) {
-                e.printStackTrace();
-=======
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
->>>>>>> origin/main
             }
         }
         if (statement!=null){
             try {
                 statement.close();
-<<<<<<< HEAD
-            } catch (SQLException e) {
-                e.printStackTrace();
-=======
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
->>>>>>> origin/main
             }
         }
         if (connection!= null){
             try {
                 connection.close();
-<<<<<<< HEAD
-            } catch (SQLException e) {
-                e.printStackTrace();
-=======
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
->>>>>>> origin/main
             }
         }
 
@@ -117,22 +102,3 @@ public class DBUtils {
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

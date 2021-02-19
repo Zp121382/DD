@@ -52,25 +52,15 @@ public class App {
         // 请输入租用的天数
         Integer days =  bootStrapApp.readUseDays();
 
-        // 生成订单 返回订单ID
+    // 生成订单 返回订单ID
         String nickname = (String) BootStrap.threadLocal.get();// 从全局的共享变量获取当前登录(下单)的用户
-
         //查询会员
         Member member = bootStrapApp.findMemberByNickname(nickname);
-
         //查询具体车辆
         Car car = bootStrapApp.findCarById(carId);
         Integer ordedrsId = bootStrapApp.genOrdedrs(days,carId, days*car.getPrice(),member.getId());
 
-        System.out.println(categoryId);
-
-
-
-
     }
-
-
-
 }
 
 

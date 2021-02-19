@@ -40,6 +40,7 @@ public class App {
 
         // 选择车的类型,返回类型ID
         Integer categoryId =  bootStrapApp.selectCarCategory();
+<<<<<<< HEAD
 //        System.out.println(categoryId);
         // 列出类型对应的车的列表
         bootStrapApp.listCar(categoryId);
@@ -60,6 +61,9 @@ public class App {
         //查询具体车辆
         Car car = bootStrapApp.findCarById(carId);
         Integer ordedrsId = bootStrapApp.genOrdedrs(days,carId, days*car.getPrice(),member.getId());
+=======
+        System.out.println(categoryId);
+>>>>>>> 78e1030c31566552e1e5f96faf289a4997c6ed97
 
 
 

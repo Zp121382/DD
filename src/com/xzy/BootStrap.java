@@ -1,10 +1,7 @@
 package com.xzy;
 
-<<<<<<< HEAD
 import com.xzy.entity.Car;
 import com.xzy.entity.Member;
-=======
->>>>>>> 78e1030c31566552e1e5f96faf289a4997c6ed97
 import com.xzy.util.DBUtils;
 
 import java.sql.*;
@@ -17,15 +14,11 @@ import java.util.Scanner;
  * @date 2021/2/19 18:12
  */
 public class BootStrap {
-<<<<<<< HEAD
 
     // thread用于保存当前线程的共享变量
     public static ThreadLocal threadLocal = new ThreadLocal();
     private static Connection connection;
 
-=======
-    private static Connection connection;
->>>>>>> 78e1030c31566552e1e5f96faf289a4997c6ed97
     /**
      * 程序启动
      * 1)加载数据库驱动
@@ -39,10 +32,7 @@ public class BootStrap {
 
     /**
      * 登录
-<<<<<<< HEAD
      *
-=======
->>>>>>> 78e1030c31566552e1e5f96faf289a4997c6ed97
      * @return
      * @throws Exception
      */
@@ -58,34 +48,18 @@ public class BootStrap {
         // 要从数据库查询
         String sql = "select count(*) as total from member where nickname=? and password=?";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
-<<<<<<< HEAD
         preparedStatement.setString(1, nickname);
         preparedStatement.setString(2, password);
-=======
-        preparedStatement.setString(1,nickname);
-        preparedStatement.setString(2,password);
->>>>>>> 78e1030c31566552e1e5f96faf289a4997c6ed97
         ResultSet resultSet = preparedStatement.executeQuery();
         resultSet.next();
         long count = resultSet.getLong("total");
         System.out.println(count);
-<<<<<<< HEAD
         if (count > 0) {
             System.out.println("登录成功!");
             threadLocal.set(nickname);
 
             return true;
         } else {
-=======
-        if(count>0){
-            System.out.println("登录成功!");
-            ThreadLocal threadLocal = new ThreadLocal();
-            threadLocal.set(nickname);
-            System.out.println(threadLocal.get());
-
-            return true;
-        }else{
->>>>>>> 78e1030c31566552e1e5f96faf289a4997c6ed97
 //            System.out.println("登陆失败,没有此用户");
             return false;
         }
@@ -93,28 +67,17 @@ public class BootStrap {
 
 
     /**
-<<<<<<< HEAD
      * 列出车类型的列表
-=======
-     *  列出车类型的列表
->>>>>>> 78e1030c31566552e1e5f96faf289a4997c6ed97
      */
     public void listCategory() {
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("select * from category");
             System.out.println("类型ID\t类型");
-<<<<<<< HEAD
             while (resultSet.next()) {
                 Integer id = resultSet.getInt("id");
                 String name = resultSet.getString("name");
                 System.out.println(id + "\t" + name);
-=======
-            while (resultSet.next()){
-                Integer id = resultSet.getInt("id");
-                String name = resultSet.getString("name");
-                System.out.println(id+"\t"+name);
->>>>>>> 78e1030c31566552e1e5f96faf289a4997c6ed97
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -125,17 +88,13 @@ public class BootStrap {
 
     /**
      * 选择车的类型
-<<<<<<< HEAD
      *
-=======
->>>>>>> 78e1030c31566552e1e5f96faf289a4997c6ed97
      * @return 车类型的ID
      */
     public Integer selectCarCategory() {
         System.out.println("请输入租用的车辆类型的ID");
         return new Scanner(System.in).nextInt();
     }
-<<<<<<< HEAD
 
     /**
      * 列出类型对应的 具体车的列表
@@ -283,6 +242,3 @@ public class BootStrap {
 
 
 
-=======
-}
->>>>>>> 78e1030c31566552e1e5f96faf289a4997c6ed97

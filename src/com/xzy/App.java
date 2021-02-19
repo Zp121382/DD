@@ -15,38 +15,37 @@ import java.util.Scanner;
  */
 
 public class App {
-    public static void main(String[] args) throws SQLException {
-        // 提示用户(登录)
-        System.out.println("欢迎使用哒哒租车系统");
-        System.out.println("请输入用户名");
-        String nickname = new Scanner(System.in).next();
 
-        System.out.println("请输入密码");
-        String password = new Scanner(System.in).next();
-        Connection connection = DBUtils.getConnection();
-        // 要从数据库查询
-        String sql = "select count(*) as total from member where nickname=? and password=?";
-        PreparedStatement preparedStatement = connection.prepareStatement(sql);
-        preparedStatement.setString(1,nickname);
-        preparedStatement.setString(2,password);
-        ResultSet resultSet = preparedStatement.executeQuery();
-        resultSet.next();
-        long count = resultSet.getLong("total");
-        System.out.println(count);
-        if(count>0){
-            System.out.println("登录成功!");
-        }else{
-            System.out.println("登陆失败,没有此用户");
+
+    public static void main(String[] args) throws Exception {
+        // 创建引导程序
+        BootStrap bootStrapApp = new BootStrap();
+
+
+
+        // 启动程序
+        bootStrapApp.startUp();
+
+        // 用户验证
+        if (!bootStrapApp.login()){
+            System.out.println("登陆失败");
         }
+        System.out.println("登陆成功");
 
-        // 加载驱动
-        // 连接数据库
-        // 准备SQL语句
-        // 执行SQL语句
-        // 释放资源
+        // 列出车的类型列表
+
+        bootStrapApp.listCategory();
+
+        // 选择车的类型,返回类型ID
+        Integer categoryId =  bootStrapApp.selectCarCategory();
+        System.out.println(categoryId);
+
 
 
     }
+
+
+
 }
 
 
